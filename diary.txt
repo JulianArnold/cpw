@@ -1,0 +1,4 @@
+20160608 - App created
+
+20160608: gems 'pg', 'rails_12factor', 'bootstrap-sass' and 'heroku' installed.  Now should wireframe up what the
+main app might look like.
