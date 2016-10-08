@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161008161627) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value"
@@ -20,5 +20,32 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   add_index "ar_internal_metadata", ["key"], name: "sqlite_autoindex_ar_internal_metadata_1", unique: true
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "categories", ["brand_id"], name: "index_categories_on_brand_id"
+  add_index "categories", ["name"], name: "index_categories_on_name"
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.text     "decription"
+    t.integer  "device_id"
+    t.integer  "brand_id"
+    t.decimal  "price"
+    t.integer  "stock_quantity"
+    t.date     "date_expected_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "products", ["brand_id"], name: "index_products_on_brand_id"
+  add_index "products", ["decription"], name: "index_products_on_decription"
+  add_index "products", ["device_id"], name: "index_products_on_device_id"
+  add_index "products", ["name"], name: "index_products_on_name"
 
 end
