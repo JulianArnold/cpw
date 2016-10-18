@@ -1,22 +1,26 @@
-<p id="notice"><%= notice %></p>
+<h1>Brands</h1>
 
-<h1>Listing Brands</h1>
-
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Name</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @brands.each do |brand| %>
       <tr>
-        <td><%= brand.name %></td>
-        <td><%= link_to 'Show', brand %></td>
-        <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
-        <td><%= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to brand.name, brand %>
+          <span class="pull-right">
+            <%= link_to edit_brand_path(brand) do %>
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            <% end %>
+            <%= link_to brand, method: :delete, data: { confirm: 'Are you sure?' } do %>
+               <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            <% end %>
+          </span>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Brand', new_brand_path %>
+<%= link_to 'New Brand', new_brand_path, class: 'btn btn-success' %>
