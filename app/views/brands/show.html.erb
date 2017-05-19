@@ -1,8 +1,26 @@
-<h1>Brand #<%= @brand.id %></h1>
+<h1>Brand: <%= @brand.name %></h1>
 <p>
-  <strong>Name:</strong>
-  <%= @brand.name %>
+  <strong>ID:</strong>
+  <%= @brand.id %>
 </p>
 
-<%= link_to 'Edit', edit_brand_path(@brand) %> |
-<%= link_to 'Back', brands_path %>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Device Name</th>
+    <td>Products</td>
+  </tr>
+  <% @brand.devices.each do |device| %>
+    <tr>
+      <td><%= link_to device.name, device %></td>
+      <td>
+        <% device.products.each do |product| %>
+          <%= link_to product.name, product %><br />
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Edit', edit_brand_path(@brand), class: 'btn btn-warning' %>
+<%= link_to 'Show all Brands', brands_path, class: 'btn btn-default' %>
+<%= link_to 'New Device', new_device_path, class: 'btn btn-success' %>

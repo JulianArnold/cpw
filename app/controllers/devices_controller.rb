@@ -1,5 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
+  before_action :set_brands, only: [:new, :edit, :create, :update]
 
   # GET /devices
   # GET /devices.json
@@ -62,6 +63,10 @@ class DevicesController < ApplicationController
   end
 
   private
+    def set_brands
+      @brands = Brand.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_device
       @device = Device.find(params[:id])

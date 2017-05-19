@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.7.1' # shows up under this app but 5.0.0 is still installed globally
+gem 'rails', '4.2.8' # shows up under this app but 5.0.0 is still installed globally
 gem 'bootstrap-sass'
 gem 'rspec-rails'
 gem 'shoulda-matchers'
@@ -11,6 +11,7 @@ gem 'slim'
 gem 'authlogic'
 gem 'aasm'
 gem 'stripe', '~> 1.44'  # installed properly once I retro-installed 4.2.6
+gem 'bootstrap-datepicker-rails'
 
 # Use sqlite3 as the database for Active Record
 # Use SCSS for stylesheets

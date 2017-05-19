@@ -1,14 +1,24 @@
-<p id="notice"><%= notice %></p>
-
+<h1>Device: <%= @device.name %></h1>
 <p>
-  <strong>Name:</strong>
-  <%= @device.name %>
+  <strong>ID:</strong>
+  <%= @device.id %>
 </p>
 
 <p>
   <strong>Brand:</strong>
-  <%= @device.brand_id %>
+  <%= link_to @device.brand.name, @device.brand %>
 </p>
 
-<%= link_to 'Edit', edit_device_path(@device) %> |
-<%= link_to 'Back', devices_path %>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Product name</th>
+  </tr>
+  <% @device.products.each do |product| %>
+    <tr>
+      <td><%= link_to product.name, product %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Edit', edit_device_path(@device), class: 'btn btn-warning' %>
+<%= link_to 'Show all Devices', devices_path, class: 'btn btn-default' %>

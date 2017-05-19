@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  root 'store#index'
+  get 'store/', to: 'store#index', as: :store
+  get 'store/:brand', to: 'store#brand', as: :store_brand
+  get 'store/:brand/:device', to: 'store#device', as: :store_device
+
   resources :brands
   resources :devices
   resources :products
@@ -8,7 +13,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

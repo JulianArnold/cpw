@@ -1,39 +1,41 @@
-<p id="notice"><%= notice %></p>
-
+<h1>Product Info: <%= @product.name %></h1>
 <p>
-  <strong>Name:</strong>
-  <%= @product.name %>
+  <strong>ID:</strong>
+  <%= @product.id %>
 </p>
 
-<p>
-  <strong>Decription:</strong>
-  <%= @product.decription %>
-</p>
+<table class="table table-bordered table-striped">
+  <tr>
+    <td>Description:</td>
+    <td><%= @product.description %></td>
+  </tr>
 
-<p>
-  <strong>Device:</strong>
-  <%= @product.device_id %>
-</p>
+  <tr>
+    <td>Device:</td>
+    <td><%= link_to @product.device.name, @product.device %></td>
+  </tr>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @product.brand_id %>
-</p>
+  <tr>
+    <td>Brand:</td>
+    <td><%= link_to @product.brand.name, @product.brand %></td>
+  </tr>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+  <tr>
+    <td>Price:</td>
+    <td><%= @product.price %></td>
+  </tr>
 
-<p>
-  <strong>Stock quantity:</strong>
-  <%= @product.stock_quantity %>
-</p>
+  <tr>
+    <td>Stock quantity:</td>
+    <td><%= @product.stock_quantity %></td>
+  </tr>
 
-<p>
-  <strong>Date expected at:</strong>
-  <%= @product.date_expected_at %>
-</p>
+  <tr>
+    <td>Date expected at:</td>
+    <td><%= @product.date_expected_at %></td>
+  </tr>
+</table>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
+<%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-warning' %>
+<%= link_to 'Show all Products', products_path, class: 'btn btn-default' %>
