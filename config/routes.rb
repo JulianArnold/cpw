@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'store#index'
-  get 'store/', to: 'store#index', as: :store
-  get 'store/:brand', to: 'store#brand', as: :store_brand
+  get 'store/',               to: 'store#index',  as: :store
+  get 'store/:brand',         to: 'store#brand',  as: :store_brand
   get 'store/:brand/:device', to: 'store#device', as: :store_device
 
   resources :brands

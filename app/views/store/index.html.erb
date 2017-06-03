@@ -3,6 +3,19 @@
   <p class="lead">Covers for all your favourite smartphones at amazing prices!</p>
 </div>
 
-<div class="well">
-  <%= params.inspect %>
+<div class="row">
+  <div class="col-sm-12">
+    <% @brands.each do |brand| %>
+      <% if brand.products.any? %>
+        <h2><%= link_to brand.name, store_brand_url(brand: brand.name) %></h2>
+        <% brand.devices.each do |device| %>
+          <% if device.products.any? %>
+            <div class="well well-sm">
+              <%= link_to device.name, store_device_url(device: device.name, brand: brand.name) %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

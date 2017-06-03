@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id               :integer          not null, primary key
+#  name             :string
+#  description      :text
+#  device_id        :integer
+#  brand_id         :integer
+#  price            :decimal(, )
+#  stock_quantity   :integer
+#  date_expected_at :date
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 class Product < ActiveRecord::Base
   belongs_to :brand
   belongs_to :device

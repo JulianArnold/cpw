@@ -1,8 +1,30 @@
 <div class="page-header text-center">
-  <h1><%= params[:brand] %> &rarr; <%= params[:device] %></h1>
+  <h1><%= link_to @brand.name, store_brand_url(brand: @brand.name.downcase) %> &rarr; <%= @device.name %></h1>
   <p class="lead">Covers for all your favourite smartphones at amazing prices!</p>
 </div>
 
-<div class="well">
-  <%= params.inspect %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Products</h2>
+    <% @device.products.each do |product|%>
+      <div class="well well-sm">
+        <h4><%= product.name %></h4>
+        <p><%= product.description %></p>
+        <div class="row">
+          <p class="col-sm-10">
+            Price:
+            <strong><%= number_to_currency(product.price, precision: 2, unit: '€', separator: '.', delimiter: ',') %></strong>
+          </p>
+          <p class="col-sm-2 text-right">
+            <% if product.stock_quantity > 0 %>
+              <%= link_to 'Buy it now', '#', class: 'btn btn-sm btn-success' %>
+            <% else %>
+              Date expected at <%= product.date_expected_at %>
+            <% end %>
+          </p>
+       </div>
+      </div>
+    <% end %>
+  </div>
 </div>
