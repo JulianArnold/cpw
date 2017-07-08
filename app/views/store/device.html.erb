@@ -9,21 +9,25 @@
     <h2>Products</h2>
     <% @device.products.each do |product|%>
       <div class="well well-sm">
-        <h4><%= product.name %></h4>
-        <p><%= product.description %></p>
         <div class="row">
-          <p class="col-sm-10">
-            Price:
-            <strong><%= number_to_currency(product.price, precision: 2, unit: '€', separator: '.', delimiter: ',') %></strong>
-          </p>
-          <p class="col-sm-2 text-right">
+          <div class="col-sm-2">
+            <%= image_tag product.image.url(:medium), class: 'img-thumbnail' %>
+          </div>
+          <div class="col-sm-8">
+            <h4><%= product.name %></h4>
+            <p><%= product.description %></p>
+            <p>Price:
+              <strong><%= number_to_currency(product.price, precision: 2, unit: '€', separator: '.', delimiter: ',') %></strong>
+            </p>
+          </div>
+          <div class="col-sm-2 text-right">
             <% if product.stock_quantity > 0 %>
               <%= link_to 'Buy it now', '#', class: 'btn btn-sm btn-success' %>
             <% else %>
               Date expected at <%= product.date_expected_at %>
             <% end %>
-          </p>
-       </div>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

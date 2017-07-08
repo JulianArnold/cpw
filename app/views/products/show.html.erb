@@ -34,6 +34,21 @@
     <td>Date expected at:</td>
     <td><%= @product.date_expected_at %></td>
   </tr>
+
+  <tr>
+    <td>Thumbnail:</td>
+    <td><%= image_tag @product.image.url(:thumb) %></td>
+  </tr>
+
+  <tr>
+    <td>Medium:</td>
+    <td><%= image_tag @product.image.url(:medium) %></td>
+  </tr>
+
+  <tr>
+    <td>Large:</td>
+    <td><%= image_tag @product.image.url(:large) %></td>
+  </tr>
 </table>
 
 
