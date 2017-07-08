@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :logged_in_required
+  before_action :manager_required
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :set_brands, only: [:new, :edit, :create, :update]
   before_action :set_devices, only: [:new, :edit, :create, :update]

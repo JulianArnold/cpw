@@ -12,6 +12,8 @@ gem 'authlogic'
 gem 'aasm'
 gem 'stripe', '~> 1.44'  # installed properly once I retro-installed 4.2.6
 gem 'bootstrap-datepicker-rails'
+gem 'paperclip'
+gem 'configatron', '~> 4.5', '>= 4.5.1'
 
 # Use sqlite3 as the database for Active Record
 # Use SCSS for stylesheets

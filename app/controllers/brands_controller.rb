@@ -1,4 +1,6 @@
 class BrandsController < ApplicationController
+  before_action :logged_in_required
+  before_action :manager_required
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
 
   # GET /brands
@@ -62,13 +64,14 @@ class BrandsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_brand
-      @brand = Brand.includes(:products).find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def brand_params
-      params.require(:brand).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_brand
+    @brand = Brand.includes(:products).find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def brand_params
+    params.require(:brand).permit(:name)
+  end
 end

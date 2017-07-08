@@ -1,0 +1,70 @@
+<div class="page-header">
+  <h1>User: <%= @user.full_name %></h1>
+</div>
+
+<table class="table">
+  <tr>
+    <th>Email:</th>
+    <td><%= @user.email %></td>
+  </tr>
+
+  <tr>
+    <th>Type:</th>
+    <td><%= @user.type %></td>
+  </tr>
+
+  <% if @user.is_a?(Customer) %>
+    <tr>
+      <th>Billing address:</th>
+      <td><%= @user.billing_address %></td>
+    </tr>
+
+    <tr>
+      <th>Shipping address:</th>
+      <td><%= @user.shipping_address %></td>
+    </tr>
+  <% end %>
+
+  <tr>
+    <th>Login count:</th>
+    <td><%= @user.login_count %></td>
+  </tr>
+
+  <tr>
+    <th>Failed login count:</th>
+    <td><%= @user.failed_login_count %></td>
+  </tr>
+
+  <tr>
+    <th>Last request at:</th>
+    <td><%= @user.last_request_at %></td>
+  </tr>
+
+  <tr>
+    <th>Current login at:</th>
+    <td><%= @user.current_login_at %></td>
+  </tr>
+
+  <tr>
+    <th>Last login at:</th>
+    <td><%= @user.last_login_at %></td>
+  </tr>
+
+  <tr>
+    <th>Current login ip:</th>
+    <td><%= @user.current_login_ip %></td>
+  </tr>
+
+  <tr>
+    <th>Last login ip:</th>
+    <td><%= @user.last_login_ip %></td>
+  </tr>
+
+  <tr>
+    <th>Active:</th>
+    <td><%= @user.active %></td>
+  </tr>
+</table>
+
+<%= link_to 'Back', users_path, class: 'btn btn-default' %>
+<%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-warning' %>
