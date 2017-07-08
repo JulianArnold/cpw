@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603162411) do
+ActiveRecord::Schema.define(version: 20170708141605) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value"
@@ -39,8 +39,12 @@ ActiveRecord::Schema.define(version: 20170603162411) do
     t.decimal  "price"
     t.integer  "stock_quantity"
     t.date     "date_expected_at"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id"
