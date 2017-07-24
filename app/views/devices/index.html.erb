@@ -3,13 +3,15 @@
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Name</th>
+      <th colspan="2">Name</th>
     </tr>
   </thead>
 
   <tbody>
     <% @devices.each do |device| %>
       <tr>
+        <td><%= image_tag device.image.url(:thumb) %></td>
+
         <td>
           <%= link_to device.name, device %>
           <span class="pull-right">

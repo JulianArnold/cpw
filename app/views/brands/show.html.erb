@@ -3,7 +3,7 @@
   <strong>ID:</strong>
   <%= @brand.id %>
 </p>
-
+<h2>Devices and Products</h2>
 <table class="table table-bordered table-striped">
   <tr>
     <th>Device Name</th>
@@ -24,3 +24,21 @@
 <%= link_to 'Edit', edit_brand_path(@brand), class: 'btn btn-warning' %>
 <%= link_to 'Show all Brands', brands_path, class: 'btn btn-default' %>
 <%= link_to 'New Device', new_device_path, class: 'btn btn-success' %>
+
+<h2>Images</h2>
+<table class="table table-bordered table-striped">
+  <tr>
+    <td>Thumbnail:</td>
+    <td><%= image_tag @brand.image.url(:thumb) %></td>
+  </tr>
+
+  <tr>
+    <td>Medium:</td>
+    <td><%= image_tag @brand.image.url(:medium) %></td>
+  </tr>
+
+  <tr>
+    <td>Large:</td>
+    <td><%= image_tag @brand.image.url(:large) %></td>
+  </tr>
+</table>

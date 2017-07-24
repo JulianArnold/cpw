@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.8' # shows up under this app but 5.0.0 is still installed globally
+gem 'rails', '4.2.9' # shows up under this app but 5.0.0 is still installed globally
 gem 'bootstrap-sass'
 gem 'rspec-rails'
 gem 'shoulda-matchers'

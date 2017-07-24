@@ -3,13 +3,14 @@
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Name</th>
+      <th colspan="2">Name</th>
     </tr>
   </thead>
 
   <tbody>
     <% @brands.each do |brand| %>
       <tr>
+        <td class="col-sm-1"><%= image_tag brand.image.url(:thumb) %></td>
         <td>
           <%= link_to brand.name, brand %>
           <span class="pull-right">
